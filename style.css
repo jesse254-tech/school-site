@@ -75,12 +75,18 @@ img { display: block; max-width: 100%; }
 }
 .navbar nav a:hover { color: var(--accent); }
 .hamburger { display: none; background: none; border: none; color: #fff; font-size: 28px; cursor: pointer; line-height: 1; }
+.navbar nav { margin-left: auto; }
+.nav-actions { display: flex; align-items: center; gap: 14px; margin-left: 20px; }
+.theme-toggle { background: none; border: none; cursor: pointer; font-size: 22px; line-height: 1; padding: 0; }
 
 /* solid style once the page is scrolled */
 .navbar.scrolled { background: #fff; box-shadow: 0 2px 14px rgba(0,0,0,0.1); padding: 12px 40px; }
 .navbar.scrolled .logo { color: var(--primary); }
 .navbar.scrolled nav a { color: var(--dark); }
 .navbar.scrolled nav a:hover { color: var(--primary); }
+/* scrollspy: the link for the section you're viewing */
+.navbar nav a.active { color: var(--accent); }
+.navbar.scrolled nav a.active { color: var(--primary); }
 .navbar.scrolled .hamburger { color: var(--dark); }
 
 /* ===== HERO SLIDER ===== */
@@ -166,6 +172,19 @@ img { display: block; max-width: 100%; }
 .about-text { flex: 1 1 360px; }
 .about-text p { color: var(--gray); margin-bottom: 16px; }
 .about-text .btn { margin-top: 10px; }
+
+/* ===== STATS COUNTER ===== */
+.stats {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #fff;
+  padding: 60px 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 30px;
+  text-align: center;
+}
+.stat-item h3 { font-size: clamp(32px, 6vw, 46px); font-weight: 800; margin-bottom: 6px; }
+.stat-item span { font-size: 15px; color: #dce7f5; letter-spacing: 0.5px; }
 
 /* ===== ACADEMICS / PROGRAMS ===== */
 .academics { padding: 90px 40px; background: var(--light); text-align: center; }
@@ -279,6 +298,9 @@ img { display: block; max-width: 100%; }
     transition: max-height 0.35s ease, opacity 0.35s ease, margin-top 0.35s ease;
   }
   .navbar nav.open { max-height: 460px; opacity: 1; margin-top: 12px; }
+  .navbar .logo { order: 1; }
+  .nav-actions { order: 2; margin-left: auto; }
+  .navbar nav, .navbar.scrolled nav { order: 3; margin-left: 0; }
   .navbar nav a, .navbar.scrolled nav a {
     color: #fff; margin: 0; padding: 12px 4px;
     border-top: 1px solid rgba(255,255,255,0.15);
@@ -288,7 +310,10 @@ img { display: block; max-width: 100%; }
   .about, .academics, .tour, .gallery, .testimonials, .contact { padding: 60px 20px; }
   .about-img img { height: 260px; }
   .quote { font-size: 17px; }
-  .slider-arrow { width: 40px; height: 40px; font-size: 17px; }
+  .slider-arrow { display: none; }          /* hidden on touch — use swipe instead */
+  .slider-dots { bottom: 16px; }
+  .slide-content { padding-bottom: 64px; }  /* keeps text clear of the dots */
+  .stats { padding: 50px 20px; gap: 24px; }
   .fab { width: 50px; height: 50px; font-size: 22px; }
 }
 
@@ -326,3 +351,30 @@ img { display: block; max-width: 100%; }
   .reveal { opacity: 1; transform: none; }
   html { scroll-behavior: auto; }
 }
+
+/* ===== SWIPE HINT (only shows on touch devices) ===== */
+.swipe-hint { display: none; color: var(--gray); font-size: 13px; margin-top: 12px; letter-spacing: 2px; }
+@media (hover: none) { .swipe-hint { display: block; } }
+
+/* ===== DARK MODE ===== */
+/* smooth fade when switching themes */
+body, .about, .academics, .gallery, .testimonials, .contact, .footer {
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+body.dark { background: #0f1620; color: #e7edf3; }
+.dark .navbar.scrolled { background: #131c28; box-shadow: 0 2px 14px rgba(0,0,0,0.5); }
+.dark .navbar.scrolled .logo { color: #fff; }
+.dark .navbar.scrolled nav a { color: #e7edf3; }
+.dark .about, .dark .gallery, .dark .contact { background: #0f1620; }
+.dark .academics, .dark .testimonials { background: #131c28; }
+.dark .feature, .dark .program { background: #1a2534; box-shadow: 0 8px 26px rgba(0,0,0,0.4); }
+.dark .section-title, .dark .about-text, .dark .program-body h3, .dark .quote { color: #f0f4f8; }
+.dark .about-text strong { color: #fff; }
+.dark .feature h3, .dark .contact-info h3 { color: #74a9e8; }
+.dark .feature p, .dark .program-body p, .dark .about-text p,
+.dark .section-subtitle, .dark .contact-info p, .dark .who, .dark .swipe-hint { color: #9fb1c4; }
+.dark .contact-form input, .dark .contact-form textarea { background: #1a2534; border-color: #2c3a4d; color: #e7edf3; }
+.dark .contact-form input::placeholder, .dark .contact-form textarea::placeholder { color: #7e8ea1; }
+.dark .testi-dots button { background: #2c3a4d; }
+.dark .testi-dots button.active { background: #74a9e8; }
+.dark .footer { background: #0a1016; }

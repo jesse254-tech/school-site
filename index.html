@@ -11,7 +11,6 @@
   <!-- ===== NAVBAR ===== -->
   <header class="navbar" id="navbar">
     <div class="logo">Bright<span>Future</span></div>
-    <button class="hamburger" id="hamburger" aria-label="Open menu">☰</button>
     <nav id="navMenu">
       <a href="#home">Home</a>
       <a href="#about">About</a>
@@ -21,6 +20,10 @@
       <a href="#admissions">Admissions</a>
       <a href="#contact">Contact</a>
     </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">☰</button>
+    </div>
   </header>
 
   <!-- ===== HERO IMAGE SLIDER ===== -->
@@ -67,7 +70,7 @@
   <!-- ===== ABOUT ===== -->
   <section class="about" id="about">
     <div class="about-wrap">
-      <div class="about-img"><img src="images/about.jpg" alt="Students learning at Bright Future Academy"></div>
+      <div class="about-img"><img loading="lazy" decoding="async" src="images/about.jpg" alt="Students learning at Bright Future Academy"></div>
       <div class="about-text">
         <h2 class="section-title left">About Our School</h2>
         <p>For over 20 years, Bright Future Academy has been a trusted home of learning in
@@ -79,6 +82,14 @@
         <a href="#admissions" class="btn">Join Our Family</a>
       </div>
     </div>
+  </section>
+
+  <!-- ===== STATS COUNTER ===== -->
+  <section class="stats">
+    <div class="stat-item"><h3 class="count" data-target="500" data-suffix="+">0</h3><span>Happy Students</span></div>
+    <div class="stat-item"><h3 class="count" data-target="45">0</h3><span>Expert Teachers</span></div>
+    <div class="stat-item"><h3 class="count" data-target="20" data-suffix="+">0</h3><span>Years of Excellence</span></div>
+    <div class="stat-item"><h3 class="count" data-target="98" data-suffix="%">0</h3><span>Success Rate</span></div>
   </section>
 
   <!-- ===== ACADEMICS / PROGRAMS ===== -->
@@ -112,12 +123,12 @@
     <h2 class="section-title">School Life</h2>
     <p class="section-subtitle">A glimpse into a typical day at Bright Future Academy.</p>
     <div class="gallery-grid">
-      <div class="gallery-item"><img src="images/class.jpg" alt="Classroom"><span>Classrooms</span></div>
-      <div class="gallery-item"><img src="images/library.jpg" alt="Library"><span>Library</span></div>
-      <div class="gallery-item"><img src="images/lab.jpg" alt="Science lab"><span>Science Lab</span></div>
-      <div class="gallery-item"><img src="images/sports.jpg" alt="Sports"><span>Sports</span></div>
-      <div class="gallery-item"><img src="images/art.jpg" alt="Art class"><span>Art &amp; Music</span></div>
-      <div class="gallery-item"><img src="images/computer.jpg" alt="Computer lab"><span>Computer Lab</span></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="images/class.jpg" alt="Classroom"><span>Classrooms</span></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="images/library.jpg" alt="Library"><span>Library</span></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="images/lab.jpg" alt="Science lab"><span>Science Lab</span></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="images/sports.jpg" alt="Sports"><span>Sports</span></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="images/art.jpg" alt="Art class"><span>Art &amp; Music</span></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="images/computer.jpg" alt="Computer lab"><span>Computer Lab</span></div>
     </div>
   </section>
 
@@ -142,6 +153,7 @@
       </div>
     </div>
     <div class="testi-dots" id="testiDots"></div>
+    <p class="swipe-hint">👈 swipe 👉</p>
   </section>
 
   <!-- ===== ADMISSIONS CTA ===== -->

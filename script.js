@@ -127,3 +127,69 @@ window.addEventListener('scroll', () => {
 });
 backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
+// ===== DARK MODE TOGGLE (remembers your choice in the browser) =====
+const themeToggle = document.getElementById('themeToggle');
+
+function applyTheme(theme) {
+  if (theme === 'dark') {
+    document.body.classList.add('dark');
+    themeToggle.textContent = '☀️';   // show "switch to light"
+  } else {
+    document.body.classList.remove('dark');
+    themeToggle.textContent = '🌙';   // show "switch to dark"
+  }
+}
+
+// load the saved choice (defaults to light)
+applyTheme(localStorage.getItem('theme') || 'light');
+
+themeToggle.addEventListener('click', () => {
+  const next = document.body.classList.contains('dark') ? 'light' : 'dark';
+  localStorage.setItem('theme', next);
+  applyTheme(next);
+});
+
+// ===== SCROLLSPY: highlight the current section's link in the navbar =====
+const spyLinks = document.querySelectorAll('#navMenu a');
+const spySections = [...spyLinks]
+  .map((a) => document.querySelector(a.getAttribute('href')))
+  .filter(Boolean);
+if ('IntersectionObserver' in window && spySections.length) {
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = '#' + entry.target.id;
+        spyLinks.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === id));
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+  spySections.forEach((s) => spy.observe(s));
+}
+
+// ===== ANIMATED STAT COUNTERS (count up when scrolled into view) =====
+const statsSection = document.querySelector('.stats');
+if (statsSection && 'IntersectionObserver' in window) {
+  const counters = statsSection.querySelectorAll('.count');
+  const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      counters.forEach((counter) => {
+        const target = Number(counter.dataset.target);
+        const suffix = counter.dataset.suffix || '';
+        const duration = 1500;
+        let startTime = null;
+        function tick(now) {
+          if (startTime === null) startTime = now;
+          const progress = Math.min((now - startTime) / duration, 1);
+          counter.textContent = Math.floor(progress * target) + suffix;
+          if (progress < 1) requestAnimationFrame(tick);
+          else counter.textContent = target + suffix;
+        }
+        requestAnimationFrame(tick);
+      });
+      statObserver.unobserve(statsSection);
+    });
+  }, { threshold: 0.3 });
+  statObserver.observe(statsSection);
+}
+
