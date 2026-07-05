@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bright Future Academy — Nurturing Tomorrow's Leaders</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar" id="navbar">
+    <div class="logo">Bright<span>Future</span></div>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">☰</button>
+    <nav id="navMenu">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#academics">Academics</a>
+      <a href="#tour">Tour</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#admissions">Admissions</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ===== HERO IMAGE SLIDER ===== -->
+  <section class="hero-slider" id="home">
+    <div class="slides">
+      <div class="slide slide-1 active">
+        <div class="slide-content">
+          <h1>Welcome to Bright Future Academy</h1>
+          <p>Nurturing tomorrow's leaders through quality, values-based education.</p>
+          <a href="#admissions" class="btn">Apply for Admission</a>
+        </div>
+      </div>
+      <div class="slide slide-2">
+        <div class="slide-content">
+          <h1>Learning That Inspires</h1>
+          <p>Modern classrooms, caring teachers, and a curriculum built for the future.</p>
+          <a href="#academics" class="btn">Explore Academics</a>
+        </div>
+      </div>
+      <div class="slide slide-3">
+        <div class="slide-content">
+          <h1>Every Child, A Bright Future</h1>
+          <p>From pre-primary to junior school — we grow confident, curious minds.</p>
+          <a href="#about" class="btn">Discover More</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- arrows -->
+    <button class="slider-arrow prev" id="prevBtn" aria-label="Previous slide">&#10094;</button>
+    <button class="slider-arrow next" id="nextBtn" aria-label="Next slide">&#10095;</button>
+    <!-- dots (filled in by JavaScript) -->
+    <div class="slider-dots" id="dots"></div>
+  </section>
+
+  <!-- ===== WHY CHOOSE US ===== -->
+  <section class="features">
+    <div class="feature"><div class="feature-icon">📚</div><h3>Quality Education</h3><p>A rich, modern curriculum focused on understanding, not just passing exams.</p></div>
+    <div class="feature"><div class="feature-icon">👩‍🏫</div><h3>Caring Teachers</h3><p>Experienced, dedicated educators who know every learner by name.</p></div>
+    <div class="feature"><div class="feature-icon">🔬</div><h3>Modern Facilities</h3><p>Science labs, a library, and computer rooms to bring learning to life.</p></div>
+    <div class="feature"><div class="feature-icon">⚽</div><h3>Sports &amp; Arts</h3><p>Football, athletics, music, and art to develop the whole child.</p></div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="about" id="about">
+    <div class="about-wrap">
+      <div class="about-img"><img src="images/about.jpg" alt="Students learning at Bright Future Academy"></div>
+      <div class="about-text">
+        <h2 class="section-title left">About Our School</h2>
+        <p>For over 20 years, Bright Future Academy has been a trusted home of learning in
+           Nairobi. We combine strong academics with character, creativity, and care.</p>
+        <p><strong>Our Mission:</strong> to nurture confident, responsible, and curious learners
+           who are ready to shape a better tomorrow.</p>
+        <p><strong>Our Vision:</strong> to be a leading school where every child discovers their
+           unique gifts and reaches their full potential.</p>
+        <a href="#admissions" class="btn">Join Our Family</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ACADEMICS / PROGRAMS ===== -->
+  <section class="academics" id="academics">
+    <h2 class="section-title">Our Academic Programs</h2>
+    <p class="section-subtitle">A clear learning path for every stage of your child's growth.</p>
+    <div class="program-grid">
+      <div class="program"><div class="program-top pt1">PP</div><div class="program-body"><h3>Pre-Primary</h3><p>PP1 &amp; PP2 — a warm, playful start where young learners build confidence and love for school.</p></div></div>
+      <div class="program"><div class="program-top pt2">1–3</div><div class="program-body"><h3>Lower Primary</h3><p>Grades 1–3 — strong foundations in literacy, numeracy, and curiosity through activity-based learning.</p></div></div>
+      <div class="program"><div class="program-top pt3">4–6</div><div class="program-body"><h3>Upper Primary</h3><p>Grades 4–6 — deeper skills, projects, and discovery across science, humanities, and the arts.</p></div></div>
+      <div class="program"><div class="program-top pt4">7–9</div><div class="program-body"><h3>Junior School</h3><p>Grades 7–9 — specialised pathways preparing learners for senior school and beyond.</p></div></div>
+    </div>
+  </section>
+
+  <!-- ===== VIRTUAL TOUR (VIDEO) ===== -->
+  <section class="tour" id="tour">
+    <h2 class="section-title light-title">Take a Virtual Tour</h2>
+    <p class="section-subtitle light-sub">See campus life at Bright Future Academy.</p>
+    <div class="video-wrap">
+      <!-- poster shows a campus photo until play is pressed.
+           NOTE: images/tour.mp4 is a sample placeholder — replace it with a real campus clip. -->
+      <video controls poster="images/class.jpg" preload="none">
+        <source src="images/tour.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY ===== -->
+  <section class="gallery" id="gallery">
+    <h2 class="section-title">School Life</h2>
+    <p class="section-subtitle">A glimpse into a typical day at Bright Future Academy.</p>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="images/class.jpg" alt="Classroom"><span>Classrooms</span></div>
+      <div class="gallery-item"><img src="images/library.jpg" alt="Library"><span>Library</span></div>
+      <div class="gallery-item"><img src="images/lab.jpg" alt="Science lab"><span>Science Lab</span></div>
+      <div class="gallery-item"><img src="images/sports.jpg" alt="Sports"><span>Sports</span></div>
+      <div class="gallery-item"><img src="images/art.jpg" alt="Art class"><span>Art &amp; Music</span></div>
+      <div class="gallery-item"><img src="images/computer.jpg" alt="Computer lab"><span>Computer Lab</span></div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS SLIDER ===== -->
+  <section class="testimonials">
+    <h2 class="section-title">What Parents &amp; Students Say</h2>
+    <div class="testi-slider" id="testiSlider">
+      <div class="testi active">
+        <div class="avatar" style="background:#1e5aa8">JW</div>
+        <p class="quote">"Bright Future Academy transformed my son. He now loves reading and comes home excited to share what he learned."</p>
+        <p class="who">— Jane Wanjiru, Parent</p>
+      </div>
+      <div class="testi">
+        <div class="avatar" style="background:#2e9e5b">DK</div>
+        <p class="quote">"The teachers truly care. Communication is excellent and my daughter feels safe and known."</p>
+        <p class="who">— David Kiptoo, Parent</p>
+      </div>
+      <div class="testi">
+        <div class="avatar" style="background:#f5a623">AM</div>
+        <p class="quote">"I love my school! My teachers make learning fun and I've made so many good friends."</p>
+        <p class="who">— Amina M., Grade 6 Student</p>
+      </div>
+    </div>
+    <div class="testi-dots" id="testiDots"></div>
+  </section>
+
+  <!-- ===== ADMISSIONS CTA ===== -->
+  <section class="cta" id="admissions">
+    <h2>Admissions Are Open for 2027</h2>
+    <p>Give your child a bright future. Limited slots available — apply today.</p>
+    <a href="#contact" class="btn btn-light">Enroll Now</a>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact" id="contact">
+    <h2 class="section-title">Get in Touch</h2>
+    <p class="section-subtitle">We'd love to hear from you and welcome you for a visit.</p>
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <h3>Bright Future Academy</h3>
+        <p>📍 Kiambu Road, Nairobi, Kenya</p>
+        <p>📞 +254 700 123 456</p>
+        <p>✉️ info@brightfuture.ac.ke</p>
+        <p>🕑 Mon – Fri: 8:00 AM – 5:00 PM</p>
+      </div>
+      <form class="contact-form">
+        <input type="text" placeholder="Parent / Guardian Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="text" placeholder="Subject (e.g. Admission enquiry)">
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>Bright Future Academy</h4>
+        <p>Nurturing tomorrow's leaders through quality, values-based education in the heart of Nairobi.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="#about">About Us</a>
+        <a href="#academics">Academics</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#admissions">Admissions</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>📍 Kiambu Road, Nairobi</p>
+        <p>📞 +254 700 123 456</p>
+        <p>✉️ info@brightfuture.ac.ke</p>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Bright Future Academy · Built by Jesse Kiplagat</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
