@@ -81,3 +81,49 @@ function goToTesti(n) {
 function startTestiTimer() { testiTimer = setInterval(() => goToTesti(tCurrent + 1), 6000); }
 function resetTestiTimer() { clearInterval(testiTimer); startTestiTimer(); }
 startTestiTimer();
+
+// ===== SCROLL REVEAL ANIMATIONS =====
+// Sections fade + rise into view as you scroll (modern, smooth feel)
+if ('IntersectionObserver' in window) {
+  const revealTargets = document.querySelectorAll(
+    '.section-title, .section-subtitle, .feature, .about-wrap, .program, .video-wrap, .gallery-item, .testi-slider, .cta, .contact-wrap'
+  );
+  revealTargets.forEach((el, i) => {
+    el.classList.add('reveal');
+    el.style.transitionDelay = (i % 4) * 0.08 + 's';   // subtle stagger
+  });
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);   // animate once
+      }
+    });
+  }, { threshold: 0.12 });
+  revealTargets.forEach((el) => io.observe(el));
+}
+
+// ===== SWIPE SUPPORT FOR SLIDERS (touch devices) =====
+function addSwipe(element, onSwipeLeft, onSwipeRight) {
+  if (!element) return;
+  let startX = 0;
+  element.addEventListener('touchstart', (e) => { startX = e.changedTouches[0].screenX; }, { passive: true });
+  element.addEventListener('touchend', (e) => {
+    const diff = e.changedTouches[0].screenX - startX;
+    if (Math.abs(diff) > 50) { diff < 0 ? onSwipeLeft() : onSwipeRight(); }
+  }, { passive: true });
+}
+addSwipe(document.querySelector('.hero-slider'),
+  () => { nextSlide(); resetHeroTimer(); },
+  () => { prevSlide(); resetHeroTimer(); });
+addSwipe(document.getElementById('testiSlider'),
+  () => { goToTesti(tCurrent + 1); resetTestiTimer(); },
+  () => { goToTesti(tCurrent - 1); resetTestiTimer(); });
+
+// ===== BACK-TO-TOP BUTTON =====
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+  backToTop.classList.toggle('show', window.scrollY > 400);
+});
+backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+

@@ -40,7 +40,7 @@ img { display: block; max-width: 100%; }
 /* ===== SECTION TITLES ===== */
 .section-title {
   text-align: center;
-  font-size: 34px;
+  font-size: clamp(24px, 4.5vw, 34px);
   color: var(--dark);
   margin-bottom: 8px;
 }
@@ -84,7 +84,7 @@ img { display: block; max-width: 100%; }
 .navbar.scrolled .hamburger { color: var(--dark); }
 
 /* ===== HERO SLIDER ===== */
-.hero-slider { position: relative; height: 100vh; overflow: hidden; }
+.hero-slider { position: relative; height: 100vh; height: 100dvh; overflow: hidden; }
 .slides { height: 100%; }
 .slide {
   position: absolute;
@@ -105,8 +105,8 @@ img { display: block; max-width: 100%; }
 .slide-2 { background-image: linear-gradient(rgba(20,30,45,0.55), rgba(20,30,45,0.6)), url('images/slide2.jpg'); }
 .slide-3 { background-image: linear-gradient(rgba(20,30,45,0.55), rgba(20,30,45,0.6)), url('images/slide3.jpg'); }
 .slide-content { max-width: 800px; padding: 20px; }
-.slide-content h1 { font-size: 52px; margin-bottom: 18px; line-height: 1.15; }
-.slide-content p { font-size: 20px; margin-bottom: 28px; color: #eaeef3; }
+.slide-content h1 { font-size: clamp(30px, 6vw, 52px); margin-bottom: 18px; line-height: 1.15; }
+.slide-content p { font-size: clamp(15px, 2.5vw, 20px); margin-bottom: 28px; color: #eaeef3; }
 
 /* arrows */
 .slider-arrow {
@@ -233,7 +233,7 @@ img { display: block; max-width: 100%; }
 
 /* ===== ADMISSIONS CTA ===== */
 .cta { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: #fff; text-align: center; padding: 74px 20px; }
-.cta h2 { font-size: 34px; margin-bottom: 12px; }
+.cta h2 { font-size: clamp(24px, 4.5vw, 34px); margin-bottom: 12px; }
 .cta p { margin-bottom: 28px; font-size: 18px; color: #dce7f5; }
 
 /* ===== CONTACT ===== */
@@ -284,11 +284,45 @@ img { display: block; max-width: 100%; }
     border-top: 1px solid rgba(255,255,255,0.15);
   }
 
-  .slide-content h1 { font-size: 32px; }
-  .slide-content p { font-size: 16px; }
   .features { margin-top: -40px; padding: 0 20px; }
   .about, .academics, .tour, .gallery, .testimonials, .contact { padding: 60px 20px; }
-  .section-title, .cta h2 { font-size: 27px; }
   .about-img img { height: 260px; }
   .quote { font-size: 17px; }
+  .slider-arrow { width: 40px; height: 40px; font-size: 17px; }
+  .fab { width: 50px; height: 50px; font-size: 22px; }
+}
+
+/* ===== SCROLL REVEAL ANIMATIONS (added by JS) ===== */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ===== FLOATING ACTION BUTTONS ===== */
+.fab {
+  position: fixed;
+  right: 18px;
+  z-index: 900;
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px;
+  border: none; cursor: pointer; text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  transition: transform 0.25s, opacity 0.3s;
+}
+.fab:hover { transform: scale(1.08); }
+.fab-whatsapp { bottom: 84px; background: #25d366; color: #fff; }
+.back-to-top { bottom: 18px; background: var(--primary); color: #fff; opacity: 0; pointer-events: none; }
+.back-to-top.show { opacity: 1; pointer-events: auto; }
+
+/* ===== TOUCH FEEDBACK (devices without hover) ===== */
+@media (hover: none) {
+  .program:active, .feature:active { transform: translateY(-4px); }
+  .gallery-item:active img { transform: scale(1.06); }
+}
+
+/* ===== RESPECT REDUCED-MOTION PREFERENCE ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001s !important; transition-duration: 0.001s !important; }
+  .reveal { opacity: 1; transform: none; }
+  html { scroll-behavior: auto; }
 }
