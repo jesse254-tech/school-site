@@ -1,10 +1,10 @@
-// ===== NAVBAR: turn solid once the page is scrolled =====
+/* Navbar scroll state */
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 50);
 });
 
-// ===== MOBILE HAMBURGER MENU =====
+/* Mobile menu */
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
 
@@ -24,13 +24,12 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// ===== HERO IMAGE SLIDER =====
+/* Hero slider */
 const slides = document.querySelectorAll('.slide');
 const dotsBox = document.getElementById('dots');
 let current = 0;
 let heroTimer;
 
-// build one dot per slide
 slides.forEach((_, i) => {
   const dot = document.createElement('button');
   if (i === 0) dot.classList.add('active');
@@ -42,7 +41,7 @@ const dots = dotsBox.querySelectorAll('button');
 function goToSlide(n) {
   slides[current].classList.remove('active');
   dots[current].classList.remove('active');
-  current = (n + slides.length) % slides.length;   // wraps around both ways
+  current = (n + slides.length) % slides.length;
   slides[current].classList.add('active');
   dots[current].classList.add('active');
 }
@@ -52,12 +51,11 @@ function prevSlide() { goToSlide(current - 1); }
 document.getElementById('nextBtn').addEventListener('click', () => { nextSlide(); resetHeroTimer(); });
 document.getElementById('prevBtn').addEventListener('click', () => { prevSlide(); resetHeroTimer(); });
 
-// auto-advance every 5 seconds
 function startHeroTimer() { heroTimer = setInterval(nextSlide, 5000); }
 function resetHeroTimer() { clearInterval(heroTimer); startHeroTimer(); }
 startHeroTimer();
 
-// ===== TESTIMONIALS SLIDER =====
+/* Testimonials slider */
 const testis = document.querySelectorAll('.testi');
 const testiDotsBox = document.getElementById('testiDots');
 let tCurrent = 0;
@@ -82,28 +80,27 @@ function startTestiTimer() { testiTimer = setInterval(() => goToTesti(tCurrent +
 function resetTestiTimer() { clearInterval(testiTimer); startTestiTimer(); }
 startTestiTimer();
 
-// ===== SCROLL REVEAL ANIMATIONS =====
-// Sections fade + rise into view as you scroll (modern, smooth feel)
+/* Scroll reveal */
 if ('IntersectionObserver' in window) {
   const revealTargets = document.querySelectorAll(
     '.section-title, .section-subtitle, .feature, .about-wrap, .program, .video-wrap, .gallery-item, .testi-slider, .cta, .contact-wrap'
   );
   revealTargets.forEach((el, i) => {
     el.classList.add('reveal');
-    el.style.transitionDelay = (i % 4) * 0.08 + 's';   // subtle stagger
+    el.style.transitionDelay = (i % 4) * 0.08 + 's';
   });
   const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        io.unobserve(entry.target);   // animate once
+        io.unobserve(entry.target);
       }
     });
   }, { threshold: 0.12 });
   revealTargets.forEach((el) => io.observe(el));
 }
 
-// ===== SWIPE SUPPORT FOR SLIDERS (touch devices) =====
+/* Swipe support */
 function addSwipe(element, onSwipeLeft, onSwipeRight) {
   if (!element) return;
   let startX = 0;
@@ -120,27 +117,26 @@ addSwipe(document.getElementById('testiSlider'),
   () => { goToTesti(tCurrent + 1); resetTestiTimer(); },
   () => { goToTesti(tCurrent - 1); resetTestiTimer(); });
 
-// ===== BACK-TO-TOP BUTTON =====
+/* Back to top */
 const backToTop = document.getElementById('backToTop');
 window.addEventListener('scroll', () => {
   backToTop.classList.toggle('show', window.scrollY > 400);
 });
 backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-// ===== DARK MODE TOGGLE (remembers your choice in the browser) =====
+/* Theme toggle */
 const themeToggle = document.getElementById('themeToggle');
 
 function applyTheme(theme) {
   if (theme === 'dark') {
     document.body.classList.add('dark');
-    themeToggle.textContent = '☀️';   // show "switch to light"
+    themeToggle.textContent = '☀️';
   } else {
     document.body.classList.remove('dark');
-    themeToggle.textContent = '🌙';   // show "switch to dark"
+    themeToggle.textContent = '🌙';
   }
 }
 
-// load the saved choice (defaults to light)
 applyTheme(localStorage.getItem('theme') || 'light');
 
 themeToggle.addEventListener('click', () => {
@@ -149,7 +145,7 @@ themeToggle.addEventListener('click', () => {
   applyTheme(next);
 });
 
-// ===== SCROLLSPY: highlight the current section's link in the navbar =====
+/* Scrollspy */
 const spyLinks = document.querySelectorAll('#navMenu a');
 const spySections = [...spyLinks]
   .map((a) => document.querySelector(a.getAttribute('href')))
@@ -166,7 +162,7 @@ if ('IntersectionObserver' in window && spySections.length) {
   spySections.forEach((s) => spy.observe(s));
 }
 
-// ===== ANIMATED STAT COUNTERS (count up when scrolled into view) =====
+/* Stat counters */
 const statsSection = document.querySelector('.stats');
 if (statsSection && 'IntersectionObserver' in window) {
   const counters = statsSection.querySelectorAll('.count');
@@ -192,4 +188,3 @@ if (statsSection && 'IntersectionObserver' in window) {
   }, { threshold: 0.3 });
   statObserver.observe(statsSection);
 }
-
