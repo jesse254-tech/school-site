@@ -1,46 +1,39 @@
-# Bright Future Academy 🏫
+# Bright Future Academy
 
-A complete, responsive school website built as a portfolio project. It steps up from my hotel landing page by adding **JavaScript sliders**, a **video section**, and a scroll-aware navigation bar.
+A modern, responsive website for Bright Future Academy — a school based in Nairobi, Kenya.
 
-## ✨ Features
+## Features
 
-- **Hero image slider** — auto-rotating slides with arrows, dots, and captions (JavaScript)
-- **Scroll-aware navbar** — transparent over the hero, turns solid white on scroll
-- **Why Choose Us** feature cards that overlap the hero
-- **About** section with mission & vision
-- **Academic programs** — Pre-Primary to Junior School
-- **Virtual tour** — an HTML5 video section
-- **Photo gallery** with hover zoom
-- **Testimonials slider** — auto-rotating parent & student quotes (JavaScript)
-- **Admissions call-to-action** banner
-- **Contact** section with details and a form
-- **Fully responsive** with an animated mobile hamburger menu
+- Hero image slider with arrows, dots, and swipe support
+- Scroll-aware navigation with active-section highlighting
+- Highlights strip, About section, and animated statistics
+- Academic programs from Pre-Primary to Junior School
+- Virtual tour video section
+- Photo gallery with hover zoom
+- Testimonials slider
+- Admissions call-to-action and a contact form
+- Dark mode, lazy-loaded images, and a fully responsive mobile layout
 
-## 🛠️ Built with
+## Built With
 
-- **HTML5** — structure
-- **CSS3** — Flexbox, Grid, transitions, animations, media queries
-- **JavaScript** — image slider, testimonials slider, hamburger menu, scroll effects
+- HTML5
+- CSS3 — Flexbox, Grid, animations, media queries
+- JavaScript
 
-No frameworks — everything hand-written to learn the fundamentals.
+## Running Locally
 
-## ▶️ How to view it
+Open `index.html` in any modern browser, or serve the folder with a local server such as XAMPP and visit `http://localhost/school-site/`.
 
-Open `index.html` in a browser, or (with XAMPP) place the folder in `htdocs` and visit `http://localhost/school-site/`.
-
-## 📂 Structure
+## Project Structure
 
 ```
 school-site/
-├── index.html      # page content
-├── style.css       # all styling
-├── script.js       # sliders, menu & scroll logic
-└── images/         # photos + tour video
+├── index.html
+├── style.css
+├── script.js
+└── images/
 ```
 
-## 👤 Author
+## Author
 
-**Jesse Kiplagat** — learning web development one commit at a time.
-
----
-*Practice project. Photos are free stock images, the tour clip is a placeholder, and the school is fictional.*
+Jesse Kiplagat
