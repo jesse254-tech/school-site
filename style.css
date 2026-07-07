@@ -371,3 +371,17 @@ body.dark { background: #0f1620; color: #e7edf3; }
 .dark .testi-dots button { background: #2c3a4d; }
 .dark .testi-dots button.active { background: #74a9e8; }
 .dark .footer { background: #0a1016; }
+
+/* Core values */
+.values { padding: 90px 40px; background: #fff; text-align: center; }
+.values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 26px; max-width: 1100px; margin: 0 auto; }
+.value { background: var(--light); border-radius: 12px; padding: 30px 24px; transition: transform 0.25s; }
+.value:hover { transform: translateY(-6px); }
+.value-ico { font-size: 40px; margin-bottom: 14px; }
+.value h3 { color: var(--primary); margin-bottom: 10px; }
+.value p { color: var(--gray); font-size: 15px; }
+.dark .values { background: #0f1620; }
+.dark .value { background: #1a2534; }
+.dark .value h3 { color: #74a9e8; }
+.dark .value p { color: #9fb1c4; }
+@media (max-width: 860px) { .values { padding: 60px 20px; } }
