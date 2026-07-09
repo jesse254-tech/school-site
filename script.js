@@ -188,3 +188,10 @@ if (statsSection && 'IntersectionObserver' in window) {
   }, { threshold: 0.3 });
   statObserver.observe(statsSection);
 }
+
+/* FAQ accordion */
+document.querySelectorAll('.faq-q').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    btn.parentElement.classList.toggle('open');
+  });
+});
